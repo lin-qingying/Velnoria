@@ -8,7 +8,9 @@
 
 骨架阶段。已实现：VarInt/VarLong（严格解码）、带边界检查的读取器、帧编解码、包表容器、区块快照结构、NBT 全类型编解码（保序、四类上限）、MD5 与离线 UUID、修改版 UTF-8、协议 String/Position/UUID、握手包体。63 个单元用例通过。
 
-未实现：注册表导出、区块解码、世界生成、光照传播、模拟、渲染、socket 层。
+数据管线：`inspect` 与 `export` 已可用，包表与方块状态由官方数据生成器导出，代码中无字面量 ID。
+
+未实现：区块解码、世界生成、光照传播、模拟、渲染、socket 层、其余注册表导出。
 
 进度以 `docs/worklog/` 为准，最新一条即当前状态。
 
@@ -35,7 +37,10 @@ bash scripts/build.sh
 
 ```bash
 ./build/tools/prepare/velnoria_prepare.exe inspect
+./build/tools/prepare/velnoria_prepare.exe export --java <jdk25>/bin/java.exe
 ```
+
+`export` 需要官方服务端 jar（默认 `var/inputs/server.jar`，SHA-1 必须与版本清单一致）与 JDK 25。产出：`var/prepared/<version>/{packets.tsv,block_states.tsv,manifest.txt}`，当前 26.3 为 260 个包、35,723 个方块状态。
 
 退出码：`0` 输入齐备，`3` 缺必需输入，`2` 未实现。
 

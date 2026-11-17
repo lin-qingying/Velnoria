@@ -41,6 +41,11 @@ public:
     // Order insensitive digest used to detect manifest drift at startup.
     [[nodiscard]] std::uint64_t content_hash() const;
 
+    // Content of the packets.tsv written by prepare. Existing entries are kept,
+    // so a table can accumulate several manifests; duplicates are rejected by
+    // add() and surface as an error here.
+    [[nodiscard]] Status load_tsv(std::string_view content);
+
 private:
     struct Key {
         State state;

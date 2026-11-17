@@ -2,11 +2,14 @@ add_executable(velnoria_tests
     unit/test_chunk.cpp
     unit/test_frame.cpp
     unit/test_harness.cpp
+    unit/test_json.cpp
+    unit/test_manifest.cpp
     unit/test_md5_uuid.cpp
     unit/test_modified_utf8.cpp
     unit/test_nbt.cpp
     unit/test_packet_table.cpp
     unit/test_protocol_types.cpp
+    unit/test_sha1.cpp
     unit/test_varint.cpp)
 
 target_link_libraries(velnoria_tests PRIVATE Velnoria::Core)

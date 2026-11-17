@@ -3,7 +3,7 @@
 | 项目 | 内容 |
 |---|---|
 | 一致性级别 | P0（数据导出与哈希） |
-| 状态 | draft |
+| 状态 | implemented（2026-11-17） |
 | 实现 | `tools/prepare/src/` |
 | 依赖 | 官方服务端 jar（用户自备，SHA-1 校验）、JDK 25、本机客户端 jar |
 
@@ -87,11 +87,33 @@ block_states_sha1 = ...
 - 不改动游戏安装目录。
 - 不缓存或提交任何生成物：`var/` 在 `.gitignore` 内。
 
-## 6. 验收
+## 7. 实测结果（26.3）
+
+| 项 | 值 |
+|---|---|
+| 包总数 | 260 |
+| 方块状态总数 | 35,723 |
+| `0` | `minecraft:air`（无属性） |
+| `1` | `minecraft:stone` |
+| `minecraft:intention` | handshake / serverbound / 0 |
+| `minecraft:status_response` | status / clientbound / 0 |
+| `minecraft:login` | play / clientbound / 50 |
+| `minecraft:keep_alive` | play / clientbound / 45，serverbound / 28 |
+| `minecraft:game_event` | play / clientbound / 39 |
+| `minecraft:level_chunk_with_light` | play / clientbound / 46 |
+| `minecraft:light_update` | play / clientbound / 49 |
+| `minecraft:block_update` | play / clientbound / 8 |
+| 输出 SHA-1 | packets `5e2a8d5b…1d9b`，states `ee4c83f5…78a0` |
+
+两次连续运行产出字节相同（哈希一致），满足确定性要求。
+
+注意：26.3 的区块包名为 `level_chunk_with_light`，不是旧文档常写的 `chunk_data_and_update_light`。包名以本表为准，代码中不得出现字面量。
+
+## 8. 验收
 
 | 用例 | 判定 |
 |---|---|
-| 两次运行 | 三个文件逐字节相同 |
+| 两次运行 | 三个文件逐字节相同（已实测） |
 | 输入篡改 | 改一字节的 server.jar → 退出码 4，无输出 |
 | 状态连续性 | `block_states.tsv` 的 ID 集合等于 `[0, max]` |
 | 包表加载 | `PacketTable` 载入后 `id_of` 与 `packets.tsv` 一致 |

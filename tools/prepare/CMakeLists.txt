@@ -1,4 +1,4 @@
-add_executable(velnoria_prepare src/main.cpp)
+add_executable(velnoria_prepare src/main.cpp src/export.cpp)
 target_link_libraries(velnoria_prepare PRIVATE Velnoria::Core)
 
 # getenv is fine for a CLI that reads two documented variables; the MSVC

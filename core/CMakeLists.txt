@@ -1,16 +1,19 @@
 add_library(velnoria_core STATIC
+    src/block_states.cpp
     src/byte_reader.cpp
     src/chunk_pos.cpp
     src/chunk_snapshot.cpp
     src/error.cpp
     src/frame.cpp
     src/handshake.cpp
+    src/json.cpp
     src/md5.cpp
     src/modified_utf8.cpp
     src/nbt_io.cpp
     src/nbt_tag.cpp
     src/packet_table.cpp
     src/protocol_types.cpp
+    src/sha1.cpp
     src/utf8.cpp
     src/uuid.cpp
     src/varint.cpp)
