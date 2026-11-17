@@ -1,0 +1,17 @@
+# Normalise line endings so the repository stays LF on every platform and
+# diffs do not churn when a file is touched on Windows.
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary artifacts that must never be diffed or converted.
+*.jar binary
+*.png binary
+*.jpg binary
+*.dds binary
+*.uasset binary
+*.umap binary
+*.mca binary
+*.nbt binary

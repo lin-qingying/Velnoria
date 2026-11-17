@@ -54,6 +54,7 @@ docs/        design、parity、protocol、worklog
 | 文件 | 内容 |
 |---|---|
 | `AGENT.md` | 工作记录规范（强制） |
+| `docs/design/complete-design.md` | 总纲：目标、合规、架构、子系统、测试、风险 |
 | `docs/environment.md` | 本机安装路径、版本指纹、已验证事实 |
 | `docs/parity/levels.md` | 一致性分级与验收标准 |
 | `docs/design/vertical-slice-01.md` | 第一刀切片的范围与门禁 |
