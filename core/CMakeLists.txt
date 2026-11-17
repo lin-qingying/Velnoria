@@ -4,7 +4,12 @@ add_library(lumenvox_core STATIC
     src/chunk_snapshot.cpp
     src/error.cpp
     src/frame.cpp
+    src/md5.cpp
+    src/modified_utf8.cpp
+    src/nbt_io.cpp
+    src/nbt_tag.cpp
     src/packet_table.cpp
+    src/uuid.cpp
     src/varint.cpp)
 
 target_include_directories(lumenvox_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

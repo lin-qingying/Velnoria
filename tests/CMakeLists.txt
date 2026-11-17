@@ -2,6 +2,9 @@ add_executable(lumenvox_tests
     unit/test_chunk.cpp
     unit/test_frame.cpp
     unit/test_harness.cpp
+    unit/test_md5_uuid.cpp
+    unit/test_modified_utf8.cpp
+    unit/test_nbt.cpp
     unit/test_packet_table.cpp
     unit/test_varint.cpp)
 
