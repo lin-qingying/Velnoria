@@ -1,0 +1,31 @@
+Lumenvox
+Copyright (C) 2026 the Lumenvox contributors
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version. See LICENSE for the full text.
+
+--------------------------------------------------------------------------------
+NOTICE
+
+Lumenvox is an unofficial, non-commercial project. It is not affiliated with,
+endorsed by, or sponsored by Mojang Studios, Microsoft Corporation, or Epic
+Games, Inc.
+
+"Minecraft" is a trademark of Mojang Synergies AB. Unreal, Unreal Engine and
+Lumen are trademarks of Epic Games, Inc. All trademarks are the property of
+their respective owners and are used only in descriptive, nominative form.
+
+This repository contains:
+  - original source code written for this project
+  - no game assets, textures, sounds, language files, or world data
+  - no Unreal Engine code, binaries, or editor content
+  - no decompiled or derived source from any proprietary implementation
+
+Game data required at runtime is read from the user's own licensed installation
+and cached locally on the user's machine. That cache is excluded from version
+control and is never redistributed.
+
+Requirement for users: you must own a valid licence for the game whose data you
+load. No licence is granted here for any third party intellectual property.

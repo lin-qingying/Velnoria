@@ -1,0 +1,50 @@
+# Build output
+build/
+out/
+cmake-build-*/
+*.o
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.a
+*.dll
+*.so
+*.dylib
+*.exe
+
+# Local generated data. Never commit: produced from the user's own install.
+var/
+prepared/
+*.mca
+*.mcr
+
+# Test fixtures generated locally (see docs/design/vertical-slice-01.md section 9)
+tests/differential/fixtures/**/*.bin
+tests/differential/fixtures/**/*.nbt
+tests/differential/fixtures/**/*.mca
+
+# Unreal
+ue/**/Binaries/
+ue/**/Intermediate/
+ue/**/Saved/
+ue/**/DerivedDataCache/
+ue/**/*.sln
+ue/**/*.suo
+ue/**/*.uprojectdirs
+*.VC.db
+
+# Editors / OS
+.vs/
+.vscode/
+.idea/
+.clangd/
+.cache/
+*.user
+Thumbs.db
+.DS_Store
+
+# Working notes that must not leak into the repository
+scratch/
+NOTES.local.md
