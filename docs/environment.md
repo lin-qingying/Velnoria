@@ -54,7 +54,7 @@
 | 内容 | 路径 | 是否入库 |
 |---|---|---|
 | 构建产物 | `build/` | 否 |
-| `prepare` 导出缓存 | `var/prepared/`（可通过 `LUMENVOX_DATA_DIR` 覆盖） | 否 |
+| `prepare` 导出缓存 | `var/prepared/`（可通过 `VELNORIA_DATA_DIR` 覆盖） | 否 |
 | 差分夹具（大件） | 本地生成，不入库 | 否 |
 
 `prepare` 读取上述游戏安装，只写 `var/prepared/`，绝不修改游戏目录。
@@ -77,7 +77,7 @@
 
 ```bash
 bash scripts/build.sh                       # 构建 + 单元测试
-./build/tools/prepare/lumenvox_prepare.exe inspect
+./build/tools/prepare/velnoria_prepare.exe inspect
 ```
 
 `inspect` 的退出码：`0` 输入齐备，`3` 缺少必需输入（当前即 3，因服务端 jar 缺失），`2` 功能未实现。

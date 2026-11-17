@@ -1,8 +1,8 @@
-#include "lumenvox/world/chunk_snapshot.hpp"
+#include "velnoria/world/chunk_snapshot.hpp"
 
 #include <utility>
 
-namespace lumenvox::world {
+namespace velnoria::world {
 
 Result<ChunkSnapshotPtr> ChunkSnapshot::create(Build build) {
     if (build.section_count <= 0) {
@@ -39,4 +39,4 @@ Result<ChunkSnapshotPtr> ChunkSnapshot::create(Build build) {
     return snapshot;
 }
 
-}  // namespace lumenvox::world
+}  // namespace velnoria::world

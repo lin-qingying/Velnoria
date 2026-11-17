@@ -1,8 +1,8 @@
-#include "lumenvox/core/md5.hpp"
+#include "velnoria/core/md5.hpp"
 
 #include <cstddef>
 
-namespace lumenvox {
+namespace velnoria {
 namespace {
 
 // Round constants: floor(2^32 * abs(sin(i + 1))), as defined by RFC 1321.
@@ -137,4 +137,4 @@ std::string to_hex(std::span<const std::uint8_t> bytes) {
     return out;
 }
 
-}  // namespace lumenvox
+}  // namespace velnoria

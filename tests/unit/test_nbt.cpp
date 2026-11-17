@@ -5,21 +5,21 @@
 #include <utility>
 #include <vector>
 
-#include "lumenvox/core/byte_reader.hpp"
-#include "lumenvox/core/byte_writer.hpp"
-#include "lumenvox/nbt/io.hpp"
-#include "lumenvox/nbt/tag.hpp"
+#include "velnoria/core/byte_reader.hpp"
+#include "velnoria/core/byte_writer.hpp"
+#include "velnoria/nbt/io.hpp"
+#include "velnoria/nbt/tag.hpp"
 #include "test_harness.hpp"
 
-using lumenvox::ByteReader;
-using lumenvox::ByteWriter;
-using lumenvox::ErrorCode;
-using lumenvox::nbt::Limits;
-using lumenvox::nbt::NamedTag;
-using lumenvox::nbt::Tag;
-using lumenvox::nbt::TagCompound;
-using lumenvox::nbt::TagList;
-using lumenvox::nbt::Type;
+using velnoria::ByteReader;
+using velnoria::ByteWriter;
+using velnoria::ErrorCode;
+using velnoria::nbt::Limits;
+using velnoria::nbt::NamedTag;
+using velnoria::nbt::Tag;
+using velnoria::nbt::TagCompound;
+using velnoria::nbt::TagList;
+using velnoria::nbt::Type;
 
 namespace {
 
@@ -28,14 +28,14 @@ using Bytes = std::vector<std::uint8_t>;
 Bytes write_tag(const NamedTag& named) {
     Bytes bytes;
     ByteWriter writer(bytes);
-    auto status = lumenvox::nbt::write_root(named, writer);
+    auto status = velnoria::nbt::write_root(named, writer);
     LV_REQUIRE(status.ok());
     return bytes;
 }
 
 NamedTag read_tag(const Bytes& bytes, Limits limits = {}) {
     ByteReader reader(bytes);
-    auto result = lumenvox::nbt::read_root(reader, limits);
+    auto result = velnoria::nbt::read_root(reader, limits);
     LV_REQUIRE(result.ok());
     return std::move(result).take();
 }
@@ -168,7 +168,7 @@ LV_TEST(nbt_rejects_truncated_input) {
     bytes.pop_back();
 
     ByteReader reader(bytes);
-    LV_CHECK_ERR(lumenvox::nbt::read_root(reader), ErrorCode::truncated);
+    LV_CHECK_ERR(velnoria::nbt::read_root(reader), ErrorCode::truncated);
 }
 
 LV_TEST(nbt_rejects_negative_list_length) {
@@ -178,13 +178,13 @@ LV_TEST(nbt_rejects_negative_list_length) {
         0x00,
     };
     ByteReader reader(bytes);
-    LV_CHECK_ERR(lumenvox::nbt::read_root(reader), ErrorCode::malformed);
+    LV_CHECK_ERR(velnoria::nbt::read_root(reader), ErrorCode::malformed);
 }
 
 LV_TEST(nbt_rejects_unknown_tag_type) {
     const Bytes bytes{0x0A, 0x00, 0x00, 0x3F, 0x00, 0x01, 'x', 0x00, 0x00};
     ByteReader reader(bytes);
-    LV_CHECK_ERR(lumenvox::nbt::read_root(reader), ErrorCode::malformed);
+    LV_CHECK_ERR(velnoria::nbt::read_root(reader), ErrorCode::malformed);
 }
 
 LV_TEST(nbt_enforces_depth_limit) {
@@ -200,7 +200,7 @@ LV_TEST(nbt_enforces_depth_limit) {
     Limits limits;
     limits.max_depth = 3;
     ByteReader reader(bytes);
-    LV_CHECK_ERR(lumenvox::nbt::read_root(reader, limits), ErrorCode::value_out_of_range);
+    LV_CHECK_ERR(velnoria::nbt::read_root(reader, limits), ErrorCode::value_out_of_range);
 }
 
 LV_TEST(nbt_enforces_string_unit_limit) {
@@ -211,7 +211,7 @@ LV_TEST(nbt_enforces_string_unit_limit) {
     Limits limits;
     limits.max_string_units = 3;
     ByteReader reader(bytes);
-    LV_CHECK_ERR(lumenvox::nbt::read_root(reader, limits), ErrorCode::value_out_of_range);
+    LV_CHECK_ERR(velnoria::nbt::read_root(reader, limits), ErrorCode::value_out_of_range);
 }
 
 LV_TEST(nbt_enforces_byte_budget) {
@@ -222,5 +222,5 @@ LV_TEST(nbt_enforces_byte_budget) {
     Limits limits;
     limits.max_bytes = 8;
     ByteReader reader(bytes);
-    LV_CHECK_ERR(lumenvox::nbt::read_root(reader, limits), ErrorCode::frame_too_large);
+    LV_CHECK_ERR(velnoria::nbt::read_root(reader, limits), ErrorCode::frame_too_large);
 }

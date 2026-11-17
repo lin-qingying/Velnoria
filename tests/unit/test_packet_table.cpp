@@ -1,13 +1,13 @@
 #include <cstdint>
 
-#include "lumenvox/protocol/packet_table.hpp"
+#include "velnoria/protocol/packet_table.hpp"
 #include "test_harness.hpp"
 
-using lumenvox::ErrorCode;
-using lumenvox::protocol::Bound;
-using lumenvox::protocol::PacketEntry;
-using lumenvox::protocol::PacketTable;
-using lumenvox::protocol::State;
+using velnoria::ErrorCode;
+using velnoria::protocol::Bound;
+using velnoria::protocol::PacketEntry;
+using velnoria::protocol::PacketTable;
+using velnoria::protocol::State;
 
 namespace {
 

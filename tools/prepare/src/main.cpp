@@ -27,17 +27,17 @@ struct Options {
 
 void print_usage() {
     std::printf(
-        "lumenvox_prepare - local data pipeline\n"
+        "velnoria_prepare - local data pipeline\n"
         "\n"
         "Usage:\n"
-        "  lumenvox_prepare inspect [--root <dir>] [--version <id>]\n"
-        "  lumenvox_prepare export  [--root <dir>] [--version <id>] [--out <dir>]\n"
+        "  velnoria_prepare inspect [--root <dir>] [--version <id>]\n"
+        "  velnoria_prepare export  [--root <dir>] [--version <id>] [--out <dir>]\n"
         "\n"
         "  inspect   Report which required files are present locally. Read only.\n"
         "  export    Produce packet table, registry and asset manifests (not implemented).\n"
         "\n"
         "Options:\n"
-        "  --root <dir>     Game install root. Default: %s, or LUMENVOX_MC_DIR.\n"
+        "  --root <dir>     Game install root. Default: %s, or VELNORIA_MC_DIR.\n"
         "  --version <id>   Version directory name. Default: %s.\n"
         "\n"
         "Exit codes:\n"
@@ -126,8 +126,8 @@ int run_inspect(const Options& options) {
 
 int main(int argc, char** argv) {
     Options options;
-    options.install_root = env_or("LUMENVOX_MC_DIR", kDefaultInstallRoot);
-    options.version_id = env_or("LUMENVOX_VERSION", kDefaultVersionId);
+    options.install_root = env_or("VELNORIA_MC_DIR", kDefaultInstallRoot);
+    options.version_id = env_or("VELNORIA_VERSION", kDefaultVersionId);
 
     for (int i = 1; i < argc; ++i) {
         const std::string arg = argv[i];

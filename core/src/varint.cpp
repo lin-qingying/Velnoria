@@ -1,6 +1,6 @@
-#include "lumenvox/core/varint.hpp"
+#include "velnoria/core/varint.hpp"
 
-namespace lumenvox {
+namespace velnoria {
 namespace {
 
 template <typename UInt>
@@ -79,4 +79,4 @@ std::size_t varint_size(std::uint32_t value) noexcept {
     return size;
 }
 
-}  // namespace lumenvox
+}  // namespace velnoria

@@ -2,12 +2,12 @@
 #include <string>
 #include <vector>
 
-#include "lumenvox/core/md5.hpp"
-#include "lumenvox/core/uuid.hpp"
+#include "velnoria/core/md5.hpp"
+#include "velnoria/core/uuid.hpp"
 #include "test_harness.hpp"
 
-using lumenvox::Uuid;
-using lumenvox::to_hex;
+using velnoria::Uuid;
+using velnoria::to_hex;
 
 LV_TEST(md5_rfc1321_vectors) {
     // Expected digests computed independently with a reference implementation.
@@ -22,7 +22,7 @@ LV_TEST(md5_rfc1321_vectors) {
     };
 
     for (const auto& test_case : cases) {
-        LV_CHECK_EQ(to_hex(lumenvox::md5(std::string_view(test_case.input))),
+        LV_CHECK_EQ(to_hex(velnoria::md5(std::string_view(test_case.input))),
                     std::string(test_case.digest));
     }
 }
@@ -33,7 +33,7 @@ LV_TEST(md5_handles_block_boundaries) {
     std::string previous;
     for (auto size : sizes) {
         const std::string input(size, 'a');
-        const auto digest = to_hex(lumenvox::md5(std::string_view(input)));
+        const auto digest = to_hex(velnoria::md5(std::string_view(input)));
         LV_REQUIRE(digest.size() == 32);
         LV_REQUIRE(digest != previous);
         previous = digest;
@@ -54,13 +54,13 @@ LV_TEST(uuid_parse_and_format_roundtrip) {
 }
 
 LV_TEST(uuid_parse_rejects_malformed_input) {
-    LV_CHECK_ERR(Uuid::parse("b50ad385-829d-3141-a216"), lumenvox::ErrorCode::malformed);
+    LV_CHECK_ERR(Uuid::parse("b50ad385-829d-3141-a216"), velnoria::ErrorCode::malformed);
     LV_CHECK_ERR(Uuid::parse("b50ad385-829d-3141-a216-7e7d7539ba7f0"),
-                 lumenvox::ErrorCode::malformed);
+                 velnoria::ErrorCode::malformed);
     LV_CHECK_ERR(Uuid::parse("zb0ad385-829d-3141-a216-7e7d7539ba7f"),
-                 lumenvox::ErrorCode::malformed);
+                 velnoria::ErrorCode::malformed);
     LV_CHECK_ERR(Uuid::parse("b50ad385-829d-3141-a216-7e7d7539ba7"),
-                 lumenvox::ErrorCode::malformed);
+                 velnoria::ErrorCode::malformed);
 }
 
 LV_TEST(offline_player_uuid_matches_reference) {

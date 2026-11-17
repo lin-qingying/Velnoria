@@ -1,6 +1,6 @@
-#include "lumenvox/core/modified_utf8.hpp"
+#include "velnoria/core/modified_utf8.hpp"
 
-namespace lumenvox::text {
+namespace velnoria::text {
 namespace {
 
 void append_utf8(std::string& out, std::uint32_t code_point) {
@@ -234,4 +234,4 @@ Status encode_modified_utf8(std::string_view utf8, std::vector<std::uint8_t>& ou
     return Status::success();
 }
 
-}  // namespace lumenvox::text
+}  // namespace velnoria::text

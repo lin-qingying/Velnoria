@@ -1,9 +1,9 @@
-#include "lumenvox/protocol/packet_table.hpp"
+#include "velnoria/protocol/packet_table.hpp"
 
 #include <functional>
 #include <utility>
 
-namespace lumenvox::protocol {
+namespace velnoria::protocol {
 namespace {
 
 std::uint64_t mix(std::uint64_t hash, std::uint64_t value) {
@@ -83,4 +83,4 @@ std::uint64_t PacketTable::content_hash() const {
     return total;
 }
 
-}  // namespace lumenvox::protocol
+}  // namespace velnoria::protocol

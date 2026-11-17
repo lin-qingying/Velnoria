@@ -4,7 +4,7 @@
 |---|---|
 | 一致性级别 | P0（字节一致） |
 | 状态 | implemented |
-| 实现 | `core/include/lumenvox/nbt/{tag,io}.hpp`、`core/src/{nbt_tag,nbt_io}.cpp` |
+| 实现 | `core/include/velnoria/nbt/{tag,io}.hpp`、`core/src/{nbt_tag,nbt_io}.cpp` |
 | 规格与实现顺序 | **同批提交**，违反规格先行要求，见 `docs/worklog/2026-11-17.md` |
 
 ## 标签类型

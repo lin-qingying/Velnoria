@@ -1,6 +1,6 @@
-#include "lumenvox/core/error.hpp"
+#include "velnoria/core/error.hpp"
 
-namespace lumenvox {
+namespace velnoria {
 
 std::string_view to_string(ErrorCode code) noexcept {
     switch (code) {
@@ -26,4 +26,4 @@ std::string_view to_string(ErrorCode code) noexcept {
     return "unknown";
 }
 
-}  // namespace lumenvox
+}  // namespace velnoria

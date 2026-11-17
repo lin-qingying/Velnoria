@@ -1,6 +1,6 @@
-#include "lumenvox/core/byte_reader.hpp"
+#include "velnoria/core/byte_reader.hpp"
 
-namespace lumenvox {
+namespace velnoria {
 
 Result<std::uint8_t> ByteReader::read_u8() {
     if (remaining() < 1) {
@@ -26,4 +26,4 @@ Status ByteReader::skip(std::size_t count) {
     return Status::success();
 }
 
-}  // namespace lumenvox
+}  // namespace velnoria

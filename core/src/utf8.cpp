@@ -1,8 +1,8 @@
-#include "lumenvox/core/utf8.hpp"
+#include "velnoria/core/utf8.hpp"
 
 #include <cstdint>
 
-namespace lumenvox::utf8 {
+namespace velnoria::utf8 {
 
 bool validate_and_count(std::string_view text, std::size_t& units) {
     units = 0;
@@ -59,4 +59,4 @@ bool validate_and_count(std::string_view text, std::size_t& units) {
     return true;
 }
 
-}  // namespace lumenvox::utf8
+}  // namespace velnoria::utf8

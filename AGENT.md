@@ -122,7 +122,7 @@ core         ──▶ 标准库
 
 ### 8.3 文件与命名
 
-- 一个公开类型一个头文件；头文件路径与命名空间一致（`lumenvox::world::ChunkPos` → `core/include/lumenvox/world/chunk_pos.hpp`）。
+- 一个公开类型一个头文件；头文件路径与命名空间一致（`velnoria::world::ChunkPos` → `core/include/velnoria/world/chunk_pos.hpp`）。
 - 实现文件与头文件同名，放在 `core/src/`，按模块前缀命名（`chunk_pos.cpp`）。
 - 类型 `PascalCase`，函数与变量 `snake_case`，编译期常量 `kPascalCase`，成员变量尾部下划线。
 - 命名空间必须三层以内；禁止 `using namespace` 出现在头文件。

@@ -1,4 +1,4 @@
-add_library(lumenvox_core STATIC
+add_library(velnoria_core STATIC
     src/byte_reader.cpp
     src/chunk_pos.cpp
     src/chunk_snapshot.cpp
@@ -15,14 +15,14 @@ add_library(lumenvox_core STATIC
     src/uuid.cpp
     src/varint.cpp)
 
-target_include_directories(lumenvox_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(lumenvox_core PUBLIC Lumenvox::Warnings)
+target_include_directories(velnoria_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(velnoria_core PUBLIC Velnoria::Warnings)
 
 # Generated manifests (packet tables, registries) are produced by the prepare
 # tool from the user's own installation and land outside the source tree. The
 # path is injected so no versioned data is ever committed.
-set(LUMENVOX_DATA_DIR "${CMAKE_SOURCE_DIR}/var/prepared" CACHE PATH
+set(VELNORIA_DATA_DIR "${CMAKE_SOURCE_DIR}/var/prepared" CACHE PATH
     "Directory holding locally generated protocol and registry manifests")
-target_compile_definitions(lumenvox_core PUBLIC LUMENVOX_DATA_DIR="${LUMENVOX_DATA_DIR}")
+target_compile_definitions(velnoria_core PUBLIC VELNORIA_DATA_DIR="${VELNORIA_DATA_DIR}")
 
-add_library(Lumenvox::Core ALIAS lumenvox_core)
+add_library(Velnoria::Core ALIAS velnoria_core)

@@ -3,13 +3,13 @@
 #include <string>
 #include <vector>
 
-#include "lumenvox/core/modified_utf8.hpp"
+#include "velnoria/core/modified_utf8.hpp"
 #include "test_harness.hpp"
 
-using lumenvox::ErrorCode;
-using lumenvox::text::decode_modified_utf8;
-using lumenvox::text::encode_modified_utf8;
-using lumenvox::text::modified_utf8_unit_count;
+using velnoria::ErrorCode;
+using velnoria::text::decode_modified_utf8;
+using velnoria::text::encode_modified_utf8;
+using velnoria::text::modified_utf8_unit_count;
 
 namespace {
 

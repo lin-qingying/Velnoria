@@ -1,9 +1,9 @@
-#include "lumenvox/protocol/packets/handshake.hpp"
+#include "velnoria/protocol/packets/handshake.hpp"
 
-#include "lumenvox/core/varint.hpp"
-#include "lumenvox/protocol/types.hpp"
+#include "velnoria/core/varint.hpp"
+#include "velnoria/protocol/types.hpp"
 
-namespace lumenvox::protocol {
+namespace velnoria::protocol {
 
 Status write_handshake(const Handshake& handshake, ByteWriter& writer) {
     if (handshake.protocol_version < 0) {
@@ -65,4 +65,4 @@ Result<Handshake> read_handshake(ByteReader& reader) {
     return handshake;
 }
 
-}  // namespace lumenvox::protocol
+}  // namespace velnoria::protocol

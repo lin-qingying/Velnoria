@@ -1,18 +1,18 @@
 #include <cstdint>
 #include <vector>
 
-#include "lumenvox/core/byte_reader.hpp"
-#include "lumenvox/core/byte_writer.hpp"
-#include "lumenvox/core/varint.hpp"
+#include "velnoria/core/byte_reader.hpp"
+#include "velnoria/core/byte_writer.hpp"
+#include "velnoria/core/varint.hpp"
 #include "test_harness.hpp"
 
-using lumenvox::ByteReader;
-using lumenvox::ByteWriter;
-using lumenvox::ErrorCode;
-using lumenvox::read_varint;
-using lumenvox::read_varlong;
-using lumenvox::write_varint;
-using lumenvox::write_varlong;
+using velnoria::ByteReader;
+using velnoria::ByteWriter;
+using velnoria::ErrorCode;
+using velnoria::read_varint;
+using velnoria::read_varlong;
+using velnoria::write_varint;
+using velnoria::write_varlong;
 
 namespace {
 
@@ -55,7 +55,7 @@ LV_TEST(varint_known_encodings) {
 LV_TEST(varint_roundtrip_boundaries) {
     for (std::uint32_t value = 0; value < 20000u; ++value) {
         const auto bytes = encode(value);
-        LV_CHECK_EQ(bytes.size(), lumenvox::varint_size(value));
+        LV_CHECK_EQ(bytes.size(), velnoria::varint_size(value));
         ByteReader reader(bytes);
         auto decoded = read_varint(reader);
         LV_REQUIRE(decoded.ok());

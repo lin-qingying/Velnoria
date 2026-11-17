@@ -1,10 +1,10 @@
-#include "lumenvox/protocol/frame.hpp"
+#include "velnoria/protocol/frame.hpp"
 
 #include <string>
 
-#include "lumenvox/core/varint.hpp"
+#include "velnoria/core/varint.hpp"
 
-namespace lumenvox {
+namespace velnoria {
 
 void FrameCodec::enable_compression(std::size_t threshold, Compressor* compressor) {
     if (threshold == 0 || compressor == nullptr) {
@@ -106,4 +106,4 @@ Status FrameCodec::encode(std::span<const std::uint8_t> payload, std::vector<std
     return Status::success();
 }
 
-}  // namespace lumenvox
+}  // namespace velnoria

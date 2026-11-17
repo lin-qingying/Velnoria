@@ -1,12 +1,12 @@
-#include "lumenvox/protocol/types.hpp"
+#include "velnoria/protocol/types.hpp"
 
 #include <cstring>
 #include <vector>
 
-#include "lumenvox/core/utf8.hpp"
-#include "lumenvox/core/varint.hpp"
+#include "velnoria/core/utf8.hpp"
+#include "velnoria/core/varint.hpp"
 
-namespace lumenvox::protocol {
+namespace velnoria::protocol {
 
 Result<std::string> read_string(ByteReader& reader, std::size_t max_units) {
     auto length = read_varint(reader);
@@ -142,4 +142,4 @@ Status write_uuid(const Uuid& uuid, ByteWriter& writer) {
     return write_i64(static_cast<std::int64_t>(uuid.lsb()), writer);
 }
 
-}  // namespace lumenvox::protocol
+}  // namespace velnoria::protocol

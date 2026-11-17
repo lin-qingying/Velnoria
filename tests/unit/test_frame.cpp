@@ -1,24 +1,24 @@
 #include <cstdint>
 #include <vector>
 
-#include "lumenvox/core/byte_reader.hpp"
-#include "lumenvox/core/byte_writer.hpp"
-#include "lumenvox/core/varint.hpp"
-#include "lumenvox/protocol/frame.hpp"
+#include "velnoria/core/byte_reader.hpp"
+#include "velnoria/core/byte_writer.hpp"
+#include "velnoria/core/varint.hpp"
+#include "velnoria/protocol/frame.hpp"
 #include "test_harness.hpp"
 
-using lumenvox::ByteReader;
-using lumenvox::ErrorCode;
-using lumenvox::FrameCodec;
-using lumenvox::FrameLimits;
-using lumenvox::Status;
+using velnoria::ByteReader;
+using velnoria::ErrorCode;
+using velnoria::FrameCodec;
+using velnoria::FrameLimits;
+using velnoria::Status;
 
 namespace {
 
 // Deliberately naive run length codec. It exists to exercise both frame paths
 // (compressed and under threshold) without pulling zlib into the core library.
 // Format: repeated (count, value) byte pairs, count in 1..255.
-class ZeroRleCompressor final : public lumenvox::Compressor {
+class ZeroRleCompressor final : public velnoria::Compressor {
 public:
     Status compress(std::span<const std::uint8_t> input,
                     std::vector<std::uint8_t>& output) override {
@@ -140,13 +140,13 @@ LV_TEST(frame_rejects_compressed_below_threshold) {
     // Hand build a frame claiming a 1 byte payload, below the negotiated
     // threshold of 256. Vanilla rejects this, and so do we.
     std::vector<std::uint8_t> body;
-    lumenvox::ByteWriter writer(body);
-    lumenvox::write_varint(1u, writer);
+    velnoria::ByteWriter writer(body);
+    velnoria::write_varint(1u, writer);
     writer.write_u8(0x7A);
 
     std::vector<std::uint8_t> frame;
-    lumenvox::ByteWriter frame_writer(frame);
-    lumenvox::write_varint(static_cast<std::uint32_t>(body.size()), frame_writer);
+    velnoria::ByteWriter frame_writer(frame);
+    velnoria::write_varint(static_cast<std::uint32_t>(body.size()), frame_writer);
     frame_writer.write_bytes(body);
 
     ByteReader reader(frame);
@@ -164,13 +164,13 @@ LV_TEST(frame_rejects_oversized_decompressed_size) {
     codec.set_limits(limits);
 
     std::vector<std::uint8_t> body;
-    lumenvox::ByteWriter writer(body);
-    lumenvox::write_varint(4096u, writer);
+    velnoria::ByteWriter writer(body);
+    velnoria::write_varint(4096u, writer);
     writer.write_u8(0xFF);
 
     std::vector<std::uint8_t> frame;
-    lumenvox::ByteWriter frame_writer(frame);
-    lumenvox::write_varint(static_cast<std::uint32_t>(body.size()), frame_writer);
+    velnoria::ByteWriter frame_writer(frame);
+    velnoria::write_varint(static_cast<std::uint32_t>(body.size()), frame_writer);
     frame_writer.write_bytes(body);
 
     ByteReader reader(frame);

@@ -1,6 +1,6 @@
-#include "lumenvox/world/chunk_pos.hpp"
+#include "velnoria/world/chunk_pos.hpp"
 
-namespace lumenvox::world {
+namespace velnoria::world {
 
 std::uint64_t ChunkPos::packed() const noexcept {
     const auto high = static_cast<std::uint64_t>(static_cast<std::uint32_t>(x_));
@@ -26,4 +26,4 @@ std::size_t ChunkPos::hash() const noexcept {
     return static_cast<std::size_t>(value);
 }
 
-}  // namespace lumenvox::world
+}  // namespace velnoria::world

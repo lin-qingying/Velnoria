@@ -1,12 +1,12 @@
-#include "lumenvox/nbt/io.hpp"
+#include "velnoria/nbt/io.hpp"
 
 #include <cstring>
 #include <utility>
 #include <vector>
 
-#include "lumenvox/core/modified_utf8.hpp"
+#include "velnoria/core/modified_utf8.hpp"
 
-namespace lumenvox::nbt {
+namespace velnoria::nbt {
 namespace {
 
 struct Context {
@@ -551,4 +551,4 @@ Status write_payload(const Tag& tag, ByteWriter& writer) {
     return write_payload_impl(tag, writer);
 }
 
-}  // namespace lumenvox::nbt
+}  // namespace velnoria::nbt

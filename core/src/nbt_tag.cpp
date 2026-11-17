@@ -1,6 +1,6 @@
-#include "lumenvox/nbt/tag.hpp"
+#include "velnoria/nbt/tag.hpp"
 
-namespace lumenvox::nbt {
+namespace velnoria::nbt {
 
 std::string_view to_string(Type type) noexcept {
     switch (type) {
@@ -166,4 +166,4 @@ bool Tag::try_get_f64(double& out) const noexcept {
     return false;
 }
 
-}  // namespace lumenvox::nbt
+}  // namespace velnoria::nbt

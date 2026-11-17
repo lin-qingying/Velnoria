@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "lumenvox/core/error.hpp"
+#include "velnoria/core/error.hpp"
 
 // Minimal test harness: no third party dependency, no discovery magic beyond a
 // static registrar. Keeping it tiny matters because the differential tests will
@@ -76,7 +76,7 @@ void check_equal(const A& actual, const B& expected, const char* actual_expr,
                            __FILE__, __LINE__);                             \
         } else if (lv_result_.error().code != (expected_code)) {             \
             ::lvtest::fail(std::string("expected error " #expected_code ", got ") + \
-                               std::string(::lumenvox::to_string(lv_result_.error().code)), \
+                               std::string(::velnoria::to_string(lv_result_.error().code)), \
                            __FILE__, __LINE__);                             \
         }                                                                   \
     } while (false)

@@ -4,7 +4,7 @@
 |---|---|
 | 一致性级别 | P0（字节一致） |
 | 状态 | implemented |
-| 实现 | `core/include/lumenvox/core/{varint,uuid,modified_utf8,md5}.hpp` |
+| 实现 | `core/include/velnoria/core/{varint,uuid,modified_utf8,md5}.hpp` |
 | 规格与实现顺序 | **同批提交**，违反 `docs/clean-room.md` §2 的规格先行要求，已在 `docs/worklog/2026-11-17.md` 记录；后续模块不再沿用 |
 
 ## VarInt / VarLong

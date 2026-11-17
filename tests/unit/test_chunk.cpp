@@ -1,14 +1,14 @@
 #include <cstdint>
 #include <vector>
 
-#include "lumenvox/world/chunk_pos.hpp"
-#include "lumenvox/world/chunk_snapshot.hpp"
+#include "velnoria/world/chunk_pos.hpp"
+#include "velnoria/world/chunk_snapshot.hpp"
 #include "test_harness.hpp"
 
-using lumenvox::world::ChunkPos;
-using lumenvox::world::ChunkSnapshot;
-using lumenvox::world::kLightBytesPerSection;
-using lumenvox::world::kSectionVolume;
+using velnoria::world::ChunkPos;
+using velnoria::world::ChunkSnapshot;
+using velnoria::world::kLightBytesPerSection;
+using velnoria::world::kSectionVolume;
 
 namespace {
 
@@ -64,11 +64,11 @@ LV_TEST(chunk_snapshot_accepts_consistent_sizes) {
 LV_TEST(chunk_snapshot_rejects_mismatched_light_arrays) {
     auto build = make_build(4);
     build.sky_light.pop_back();
-    LV_CHECK_ERR(ChunkSnapshot::create(std::move(build)), lumenvox::ErrorCode::value_out_of_range);
+    LV_CHECK_ERR(ChunkSnapshot::create(std::move(build)), velnoria::ErrorCode::value_out_of_range);
 }
 
 LV_TEST(chunk_snapshot_rejects_zero_sections) {
     auto build = make_build(1);
     build.section_count = 0;
-    LV_CHECK_ERR(ChunkSnapshot::create(std::move(build)), lumenvox::ErrorCode::malformed);
+    LV_CHECK_ERR(ChunkSnapshot::create(std::move(build)), velnoria::ErrorCode::malformed);
 }

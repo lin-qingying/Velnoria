@@ -57,7 +57,7 @@
 
 **验收**：导出物哈希写入缓存清单；重复执行产出字节相同；不含任何原版文件内容（仅 ID 与结构）。
 
-**已知阻塞**：本机缺官方服务端 jar，数据生成器无法运行。三条候选处置见 `docs/environment.md` §4，未定稿前 S0 视为阻塞。`lumenvox_prepare inspect` 当前返回退出码 3。
+**已知阻塞**：本机缺官方服务端 jar，数据生成器无法运行。三条候选处置见 `docs/environment.md` §4，未定稿前 S0 视为阻塞。`velnoria_prepare inspect` 当前返回退出码 3。
 
 ### S1 — Status 握手
 
@@ -164,7 +164,7 @@ UE 插件加载核心层库 → 注册快照读取接口 → 生成线程池做�
 ## 7. 目录结构（切片）
 
 ```
-Lumenvox/
+Velnoria/
 ├── core/                  # 纯 C++，无 UE 依赖，CMake
 │   ├── protocol/          # 基础类型、NBT、包表、状态机
 │   ├── auth/
@@ -172,7 +172,7 @@ Lumenvox/
 │   ├── world/
 │   └── light/             # 切片中仅解码
 ├── ue/
-│   └── LumenvoxPlugin/    # UE 插件，依赖 core 静态库
+│   └── VelnoriaPlugin/    # UE 插件，依赖 core 静态库
 ├── tools/
 │   ├── capture/           # 抓包与录制
 │   ├── compare/           # 区块/光照比对器

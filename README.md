@@ -1,4 +1,4 @@
-# Lumenvox
+# Velnoria
 
 以清洁实现方式重写的客户端核心，目标是与原版 Java 版 26.3 的协议、世界数据与游戏逻辑一致，表现层由 Unreal Engine 承担。
 
@@ -34,7 +34,7 @@ bash scripts/build.sh
 命令行工具：
 
 ```bash
-./build/tools/prepare/lumenvox_prepare.exe inspect
+./build/tools/prepare/velnoria_prepare.exe inspect
 ```
 
 退出码：`0` 输入齐备，`3` 缺必需输入，`2` 未实现。

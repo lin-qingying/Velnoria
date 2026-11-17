@@ -1,8 +1,8 @@
-#include "lumenvox/core/uuid.hpp"
+#include "velnoria/core/uuid.hpp"
 
-#include "lumenvox/core/md5.hpp"
+#include "velnoria/core/md5.hpp"
 
-namespace lumenvox {
+namespace velnoria {
 namespace {
 
 int hex_value(char c) {
@@ -106,4 +106,4 @@ Uuid Uuid::offline_player(std::string_view name) {
     return from_name_md5(key);
 }
 
-}  // namespace lumenvox
+}  // namespace velnoria
