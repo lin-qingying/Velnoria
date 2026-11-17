@@ -6,6 +6,7 @@ add_executable(lumenvox_tests
     unit/test_modified_utf8.cpp
     unit/test_nbt.cpp
     unit/test_packet_table.cpp
+    unit/test_protocol_types.cpp
     unit/test_varint.cpp)
 
 target_link_libraries(lumenvox_tests PRIVATE Lumenvox::Core)

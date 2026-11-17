@@ -4,11 +4,14 @@ add_library(lumenvox_core STATIC
     src/chunk_snapshot.cpp
     src/error.cpp
     src/frame.cpp
+    src/handshake.cpp
     src/md5.cpp
     src/modified_utf8.cpp
     src/nbt_io.cpp
     src/nbt_tag.cpp
     src/packet_table.cpp
+    src/protocol_types.cpp
+    src/utf8.cpp
     src/uuid.cpp
     src/varint.cpp)
 
